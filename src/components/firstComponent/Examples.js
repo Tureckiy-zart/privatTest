@@ -8,7 +8,7 @@ const {} = sytles;
 export const Examples = ({ }) => {
 
   data()
+  console.log('123123123', 123123123)
 
-
-  return <></>;
+  return <h2>qqwe212132</h2>;
 };

@@ -5,12 +5,14 @@ const pass = "iRmO4njbxlS0Hn4c6XVb5K1WSbio3B0O";
 const cardnum = 5168755444587899;
 
 const url = "https://api.privatbank.ua/p24api/balance";
-
+var config = {
+  headers: { "Content-Type": "text/xml" },
+};
 const request = `<?xml version="1.0" encoding="UTF-8"?>
 <request version="1.0">
     <merchant>
         <id>${id}</id>
-        <signature>${pass}</signature>
+        <signature>${merch}</signature>
     </merchant>
     <data>
         <oper>cmt</oper>
@@ -23,19 +25,11 @@ const request = `<?xml version="1.0" encoding="UTF-8"?>
     </data>
 </request>
 `;
- export const data = axios.get(url, (request)).then(console.log)
-
-
-
-
-
-//   .then(function (response) {
-//     console.log(response);
-//   })
-//   .catch(function (error) {
-//     // handle error
-//     console.log(error);
-//   })
-//   .then(function () {
-//     // always executed
-//   });
+export const data = axios.post(url, request, config).then(console.log)
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  })
